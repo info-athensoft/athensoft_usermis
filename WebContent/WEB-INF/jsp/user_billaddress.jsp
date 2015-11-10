@@ -1,3 +1,7 @@
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -87,7 +91,7 @@
         
         <!-- Dash board  -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header">My Billing Address Management</h1>
 
 
 
@@ -96,35 +100,32 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>Address ID</th>
+                  <th>Street No.</th>
+                  <th>Street Name</th>
+                  <th>App/Suite</th>
+                  <th>Room No.</th>
+                  <th>City</th>
+                  <th>Province</th>
+                  <th>Postal Code</th>
+                  <th>Country</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+              
+              <c:forEach var="address" items="${billAddressList}">
+               <tr>
+                  <td>${address.addressId}</td>
+                  <td>${address.streeNum}</td>
+                  <td>${address.streeName}</td>
+                  <td>${address.roomType}</td>
+                  <td>${address.roomNum}</td>
+                  <td>${address.cityCode}</td>
+                  <td>${address.provinceCode}</td>
+                  <td>${address.postalCode}</td>
+                  <td>${address.countryCode}</td>
                 </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
+                </c:forEach>
               </tbody>
             </table>
           </div>
