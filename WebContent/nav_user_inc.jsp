@@ -20,7 +20,7 @@
 <ul class="nav nav-sidebar">
   <li><a href="">Current project</a></li>
   <li><a href="">Request new project</a></li>
-  <li><a href="">Historic projects</a></li>
+  <li><a href="view_project_historical.do">Historic projects</a></li>
 </ul>
 
 <ul class="nav nav-sidebar">

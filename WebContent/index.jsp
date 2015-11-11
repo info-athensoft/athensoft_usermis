@@ -31,7 +31,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="content/css/bootstrap.min.css">
-    <link rel="stylesheet" href="content/css/bootstrap-theme111.min.css">
+    <!-- <link rel="stylesheet" href="content/css/bootstrap-theme111.min.css">  -->
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="content/css/custom/carousel.css">
