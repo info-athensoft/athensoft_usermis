@@ -6,18 +6,24 @@
 
 <ul class="nav nav-sidebar">
   <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+  <li><a href="#">Announcement</a></li>
+  <li><a href="#">Important Date</a></li>
   <li><a href="#">Reports</a></li>
+  <!-- 
   <li><a href="#">Analytics</a></li>
   <li><a href="#">Export</a></li>
+   -->
 </ul>
 
  <ul class="nav nav-sidebar">
-  <li><a href="">Customer profile</a></li>
+  <li class="active"><a href="#">My Profile<span class="sr-only">(current)</span></a></li>
+  <li><a href="">Basic Information</a></li>
   <li><a href="view_billaddress.do">Billing addresses</a></li>
   <li><a href="view_shipaddress.do">Shipping addresses</a></li>
 </ul>
 
 <ul class="nav nav-sidebar">
+	<li class="active"><a href="#">My Projects<span class="sr-only">(current)</span></a></li>
 	<li><a href="request_project.do">Request a new project</a></li>
 	<li><a href="post_projectreq.do">Post requirements</a></li>
   	<li><a href="track_project.do">Tracking current projects</a></li>
@@ -25,6 +31,8 @@
 </ul>
 
 <ul class="nav nav-sidebar">
-  <li><a href="">Orders</a></li>
-  <li><a href="">Invoices</a></li>
+	<li class="active"><a href="#">My Financial Info.<span class="sr-only">(current)</span></a></li>
+  	<li><a href="">Orders</a></li>
+  	<li><a href="">Invoices</a></li>
+  	<li><a href="">Credit</a></li>
 </ul>
