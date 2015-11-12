@@ -2,7 +2,6 @@ package com.athensoft.ecomm.service.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -16,6 +15,9 @@ import com.athensoft.ecomm.dao.project.ProjectPhaseTaskActivityDao;
 import com.athensoft.ecomm.entity.project.Phase;
 import com.athensoft.ecomm.entity.project.Project;
 import com.athensoft.ecomm.entity.project.ProjectPhaseTaskActivity;
+import com.athensoft.ecomm.entity.project.Task;
+import com.athensoft.util.collection.PhaseComparator;
+import com.athensoft.util.collection.TaskComparator;
 
 @Service
 public class ProjectService {
@@ -33,7 +35,7 @@ public class ProjectService {
 		List<Phase> phaseList = new ArrayList<Phase>();
 		//populate phase list
 			List<ProjectPhaseTaskActivity> projectDetailList = getProjectDetailList(projectId); 
-			Set<Phase> phaseSet = new HashSet<Phase>();
+			Set<Phase> phaseSet = new HashSet<Phase>();			
 
 			for(ProjectPhaseTaskActivity projectDetail : projectDetailList){
 				Phase phase = new Phase();
@@ -41,27 +43,28 @@ public class ProjectService {
 				phase.setPhaseName(projectDetail.getPhaseName());
 				phase.setPhaseDesc(projectDetail.getPhaseDesc());
 				phase.setPhaseStatus(projectDetail.getPhaseStatus());
-				phaseSet.add(phase);
+				
+				
+				List<Task> taskList = new ArrayList<Task>();				
+				Set<Task> taskSet = new HashSet<Task>();
+				for(ProjectPhaseTaskActivity projectDetail_2 : projectDetailList){
+					Task task = new Task();
+					task.setTaskId(projectDetail_2.getTaskId());
+					task.setTaskName(projectDetail_2.getTaskName());
+					
+					taskSet.add(task);
+					task = null;
+				}
+				taskList.addAll(taskSet);
+				Collections.sort(taskList, new TaskComparator());
+				
+				phase.getTaskList().addAll(taskList);
+				phaseSet.add(phase);				
 				phase = null;
 			}
 
-			phaseList.addAll(phaseSet);
-			
-			Collections.sort(phaseList, new Comparator<Phase>(){
-				@Override
-				public int compare(Phase o1, Phase o2) {
-					int flag = 0;
-					if(o1.getPhaseId() < o2.getPhaseId()){
-						flag = -1;
-					}else if(o1.getPhaseId() == o2.getPhaseId()){
-						flag = 0;
-					}else{
-						flag = 1;
-					}
-					//System.out.println(flag);
-					return flag;
-				}				
-			});
+			phaseList.addAll(phaseSet);			
+			Collections.sort(phaseList, new PhaseComparator());
 			
 			//test
 			Iterator<Phase> phaseListIterator = phaseList.iterator();

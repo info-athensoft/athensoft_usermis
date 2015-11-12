@@ -1,5 +1,6 @@
 package com.athensoft.ecomm.entity.project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Task {
@@ -9,7 +10,7 @@ public class Task {
 	private int taskStatus;
 	private String taskStatusDesc;
 	
-	private List<Activity> activityList;
+	private List<Activity> activityList = new ArrayList<Activity>();
 	
 	public List<Activity> getActivityList() {
 		return activityList;
@@ -47,4 +48,11 @@ public class Task {
 	public void setTaskStatusDesc(String taskStatusDesc) {
 		this.taskStatusDesc = taskStatusDesc;
 	}
+	@Override
+	public String toString() {
+		return "Task [taskId=" + taskId + ", taskName=" + taskName + ", taskDesc=" + taskDesc + ", taskStatus="
+				+ taskStatus + ", taskStatusDesc=" + taskStatusDesc + ", activityList=" + activityList + "]";
+	}
+	
+	
 }

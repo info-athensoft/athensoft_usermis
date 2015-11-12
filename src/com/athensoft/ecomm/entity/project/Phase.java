@@ -1,5 +1,6 @@
 package com.athensoft.ecomm.entity.project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Phase{
@@ -9,7 +10,7 @@ public class Phase{
 	private int phaseStatus;
 	private String phaseStatusDesc;
 	
-	private List<Task> taskList;
+	private List<Task> taskList = new ArrayList<Task>();
 	
 	public List<Task> getTaskList() {
 		return taskList;
