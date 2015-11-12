@@ -102,64 +102,11 @@
                   <th>Activity-Broker</th>
                 </tr>
               </thead>
+              
               <tbody>
-               <tr>
-                  <td>1st Phase</td>
-                  <td>Task 1-1</td>
-                  <td><span style="color:red">Waiting</span></td>
-                  <!-- inner table athensoft-activity -->
-                  <td>                  		
-                  		 <table>			              
-			              <tbody>
-			               <tr>
-			                  <td>act-11</td>
-			                  <td><span style="color:green">completed</span></td>
-			                </tr>
-			                <tr>
-			                  <td>act-12</td>
-			                  <td>in processing</td>
-			                </tr>
-			                <tr>
-			                  <td>act-12</td>
-			                  <td>in processing</td>
-			                </tr>			
-			              </tbody>
-			            </table>                  
-                  </td>
-                  
-                  <!-- inner table client-activity -->
-                  <td>                  		
-                  		 <table>			              
-			              <tbody>
-			               <tr>
-			                  <td>act-21</td>
-			                  <td>in processing</td>
-			                </tr>
-			                <tr>
-			                  <td>act-22</td>
-			                  <td>in processing</td>
-			                </tr>
-			              </tbody>
-			            </table>                  
-                  </td>
-                  
-                  <!-- inner table broker-activity -->
-                  <td>                  		
-                  		 <table>			              
-			              <tbody>
-			               <tr>
-			                  <td>act-31</td>
-			                  <td>in processing</td>
-			                </tr>
-			              </tbody>
-			            </table>                  
-                  </td>
-                </tr>
-                
-                
-                
+          		<c:forEach var="phase" items="${project.phaseList}">      
                  <tr>
-                  <td>1st Phase</td>
+                  <td>${phase.phaseId} : ${phase.phaseName}</td>
                   <td>Task 1-1</td>
                   <td>Waiting</td>
                   <!-- inner table athensoft-activity -->
@@ -210,7 +157,8 @@
 			            </table>                  
                   </td>
                 </tr>
-
+			</c:forEach>
+			
               </tbody>
             </table>
             

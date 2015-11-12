@@ -13,16 +13,16 @@ import com.athensoft.ecomm.entity.project.ProjectProfile;
 public class ProjectProfileService {
 	private ProjectProfileDao projectProfileDao;
 		
-		@Autowired
-		@Qualifier("projectProfileDaoParam")
-		public void setProjectProfileDao(ProjectProfileDao projectProfileDao) {
-			this.projectProfileDao = projectProfileDao;
-		}
-		
-		public List<ProjectProfile> getProjectProfileList(){
-			List<ProjectProfile> projectProfileList = projectProfileDao.findAll();
-			return projectProfileList;
-		}
+	@Autowired
+	@Qualifier("projectProfileDaoParam")
+	public void setProjectProfileDao(ProjectProfileDao projectProfileDao) {
+		this.projectProfileDao = projectProfileDao;
+	}
+	
+	public List<ProjectProfile> getProjectProfileList(){
+		List<ProjectProfile> projectProfileList = projectProfileDao.findAll();
+		return projectProfileList;
+	}
 		
 }
 
