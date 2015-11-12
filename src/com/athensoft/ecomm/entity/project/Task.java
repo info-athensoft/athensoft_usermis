@@ -21,6 +21,29 @@ public class Task {
 	public int getTaskId() {
 		return taskId;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + taskId;
+		result = prime * result + taskStatus;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Task other = (Task) obj;
+		if (taskId != other.taskId)
+			return false;
+		if (taskStatus != other.taskStatus)
+			return false;
+		return true;
+	}
 	public void setTaskId(int taskId) {
 		this.taskId = taskId;
 	}

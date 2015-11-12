@@ -48,6 +48,9 @@ public class ProjectService {
 				List<Task> taskList = new ArrayList<Task>();				
 				Set<Task> taskSet = new HashSet<Task>();
 				for(ProjectPhaseTaskActivity projectDetail_2 : projectDetailList){
+					if(projectDetail_2.getPhaseId()!=phase.getPhaseId()){
+						continue;
+					}
 					Task task = new Task();
 					task.setTaskId(projectDetail_2.getTaskId());
 					task.setTaskName(projectDetail_2.getTaskName());
