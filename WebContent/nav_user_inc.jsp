@@ -18,7 +18,7 @@
 </ul>
 
 <ul class="nav nav-sidebar">
-  <li><a href="">Current project</a></li>
+  <li><a href="track_project.do">Current project</a></li>
   <li><a href="">Request new project</a></li>
   <li><a href="view_project_historical.do">Historic projects</a></li>
 </ul>
