@@ -12,17 +12,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.athensoft.ecomm.dao.project.ProjectPhaseTaskActivityDao;
-import com.athensoft.ecomm.entity.project.Activity;
 import com.athensoft.ecomm.entity.project.Phase;
 import com.athensoft.ecomm.entity.project.Project;
 import com.athensoft.ecomm.entity.project.ProjectPhaseTaskActivity;
 import com.athensoft.ecomm.entity.project.Task;
-import com.athensoft.util.collection.ActivityComparator;
 import com.athensoft.util.collection.PhaseComparator;
 import com.athensoft.util.collection.TaskComparator;
 
 @Service
-public class ProjectService {
+public class CopyOfProjectService {
 	private ProjectPhaseTaskActivityDao projectPhaseTaskActivityDao;
 	
 	@Autowired
@@ -53,35 +51,12 @@ public class ProjectService {
 					if(projectDetail_2.getPhaseId()!=phase.getPhaseId()){
 						continue;
 					}
-					
 					Task task = new Task();
 					task.setTaskId(projectDetail_2.getTaskId());
 					task.setTaskName(projectDetail_2.getTaskName());
 					
-												
-					List<Activity> activityList = new ArrayList<Activity>();
-					Set<Activity> activitySet = new HashSet<Activity>();
-					for(ProjectPhaseTaskActivity projectDetail_3 : projectDetailList){
-						if(projectDetail_3.getTaskId()!=task.getTaskId()){
-							continue;
-						}
-						Activity activity = new Activity();
-						activity.setActivityId(projectDetail_3.getActivityId());
-						activity.setActivityName(projectDetail_3.getActivityName());
-						activity.setActivityDesc(projectDetail_3.getActivityDesc());						
-						activity.setActivityStatus(projectDetail_3.getActivityStatus());
-						activity.setActivityStatusDesc(projectDetail_3.getActivityStatusDesc());
-						activity.setActorId(projectDetail_3.getActorId());						
-						
-						activitySet.add(activity);
-						activity = null;
-					}
-					activityList.addAll(activitySet);
-					Collections.sort(activityList, new ActivityComparator());
-					task.getActivityList().addAll(activityList);
-					
 					taskSet.add(task);
-					task =null;
+					task = null;
 				}
 				taskList.addAll(taskSet);
 				Collections.sort(taskList, new TaskComparator());
