@@ -8,6 +8,7 @@
   <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
   <li><a href="#">Announcement</a></li>
   <li><a href="#">Important Date</a></li>
+  <li><a href="view_item.do">Services and products</a></li>
   <li><a href="#">Reports</a></li>
   <!-- 
   <li><a href="#">Analytics</a></li>
