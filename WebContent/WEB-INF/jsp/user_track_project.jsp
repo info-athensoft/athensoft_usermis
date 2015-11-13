@@ -32,6 +32,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <style>
+    	#project-activity ul{
+    		list-style:none;
+    		margin:0px;
+			padding:0px;
+    	}
+    </style>
+    
   </head>
 
   <body>
@@ -71,32 +80,17 @@
                   <td>10 days</td>
                   <td>In Process</td>
                 </tr>
-<!-- 
-              <c:forEach var="address" items="${shipAddressList}">
-               <tr>
-                  <td>${address.addressId}</td>
-                  <td>${address.streeNum}</td>
-                  <td>${address.streeName}</td>
-                  <td>${address.roomType}</td>
-                  <td>${address.roomNum}</td>
-                  <td>${address.cityCode}</td>
-                  <td>${address.provinceCode}</td>
-                  <td>${address.postalCode}</td>
-                  <td>${address.countryCode}</td>
-                </tr>
-                </c:forEach>
- -->
+
               </tbody>
             </table>
             
-                        
-            
-            <table class="table table-striped">
+            <!-- activity -->
+            <table class="table table-striped" id="project-activity">
               <thead>
                 <tr>
                   <th>Project Phase</th>
                   <th>Tasks</th>                  
-                  <th>Status</th>
+                  <th>Phase Status</th>
                   <th>Activity-Athensoft</th>
                   <th>Activity-Client</th>
                   <th>Activity-Broker</th>
@@ -104,27 +98,37 @@
               </thead>
               
               <tbody>
-          		<c:forEach var="phase" items="${project.phaseList}">      
+          		<c:forEach var="phase" items="${project.phaseList}">
+          		 <c:set var="taskFlag" value="${true}"/>  
+          		<c:forEach var="task" items="${phase.taskList}">    
                  <tr>
-                  <td>${phase.phaseId} : ${phase.phaseName}</td>
-                  <td>Task 1-1</td>
+                  <td>
+                  	<c:if test="${taskFlag}">
+                  		${phase.phaseId} : ${phase.phaseName}
+                  	</c:if>
+                  	<c:set var="taskFlag" value="${false}"/>
+                  </td>
+                  <td>${task.taskId} : ${task.taskName}</td>
                   <td>Waiting</td>
                   <!-- inner table athensoft-activity -->
                   <td>                  		
                   		 <table>			              
 			              <tbody>
 			               <tr>
-			                  <td>act-11</td>
-			                  <td>in processing</td>
+			                  <td>
+			                      <ul>
+			                  		<c:forEach var="activity" items="${task.activityList}">
+			                  			<li>
+			                  			<c:if test="${activity.actorId==1}">
+			                  				${activity.activityId} : ${activity.activityName} : ${activity.activityStatusDesc}
+			                  			</c:if>
+			                  			</li>
+			                  		</c:forEach>
+                  				  </ul>
+								</td>
+			                  <td></td>
 			                </tr>
-			                <tr>
-			                  <td>act-12</td>
-			                  <td>waiting</td>
-			                </tr>
-			                <tr>
-			                  <td>act-12</td>
-			                  <td>to do</td>
-			                </tr>			
+			
 			              </tbody>
 			            </table>                  
                   </td>
@@ -134,12 +138,18 @@
                   		 <table>			              
 			              <tbody>
 			               <tr>
-			                  <td>act-21</td>
-			                  <td>in processing</td>
-			                </tr>
-			                <tr>
-			                  <td>act-22</td>
-			                  <td>waiting</td>
+			                  <td>
+			                  	<ul>
+			                  		<c:forEach var="activity" items="${task.activityList}">
+			                  			<li>
+										<c:if test="${activity.actorId==2}">
+			                  				${activity.activityId} : ${activity.activityName} : ${activity.activityStatusDesc}
+			                  			</c:if>
+			                  			</li>
+			                  		</c:forEach>
+                  				  </ul>
+							</td>
+			                  <td></td>
 			                </tr>
 			              </tbody>
 			            </table>                  
@@ -150,19 +160,28 @@
                   		 <table>			              
 			              <tbody>
 			               <tr>
-			                  <td>act-31</td>
-			                  <td>in processing</td>
+			                  <td>
+			                  	<ul>
+			                  		<c:forEach var="activity" items="${task.activityList}">
+			                  			<li>
+			                  				<c:if test="${activity.actorId==3}">
+			                  				${activity.activityId} : ${activity.activityName} : ${activity.activityStatusDesc}
+			                  			</c:if>
+			                  			</li>
+			                  		</c:forEach>
+                  				  </ul>
+							</td>
+			                  <td></td>
 			                </tr>
 			              </tbody>
 			            </table>                  
                   </td>
                 </tr>
+                </c:forEach>
 			</c:forEach>
 			
               </tbody>
             </table>
-            
-            
           </div>
         </div>
       </div>
