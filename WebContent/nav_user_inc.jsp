@@ -35,5 +35,5 @@
 	<li class="active"><a href="#">My Financial Info.<span class="sr-only">(current)</span></a></li>
   	<li><a href="">Orders</a></li>
   	<li><a href="view_invoice.do">Invoices</a></li>
-  	<li><a href="">Credit</a></li>
+  	<li><a href="view_credit.do">Credit</a></li>
 </ul>

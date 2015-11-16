@@ -50,7 +50,7 @@
         
         <!-- Dash board  -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">My Invoices</h1>
+          <h1 class="page-header">My Credits</h1>
           
           <!-- services -->
           <h2 class="sub-header">Summary</h2>
@@ -59,58 +59,58 @@
               <thead>
                 <tr>
                   <th>Total Amount</th>
-                  <th>Paid Amount</th>
+                  <th>Issued Amount</th>
                   <th>Balance Due</th>
                 </tr>
               </thead>
               <tbody>
 				<tr>
-                  <td>$19,000.00</td>
-                  <td>$14,000.00</td>
-                  <td>$5,000.00</td>
+                  <td>$2,000.00</td>
+                  <td>$600.00</td>
+                  <td>$1,400.00</td>
                 </tr>
               </tbody>
             </table>
           </div>
           
-          <!-- outstanding invoices -->
-          <h2 class="sub-header">Outstanding Invoices</h2>
+          <!-- outstanding credit note -->
+          <h2 class="sub-header">Outstanding Credit Notes</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Invoice No.</th>
-                  <th>Item Description</th>
-                  <th>Date Issued</th>
+                  <th>Credit Note No.</th>
+                  <th>Reference No.</th>
+                  <th>Date Created</th>
                   <th>Amount</th>
-                  <th>Due Date</th>
-                  <th>Invoice Status</th>                  
+                  <th>Date Issued</th>
+                  <th>Credit Note Status</th>                  
                 </tr>
               </thead>
               <tbody>
               <tr>
-             		<td>1</td>
-              		<td>chatime</td>
+             		<td>CRD-001</td>
+              		<td>INV-001</td>
               		<td>2015-10-20</td>
-              		<td>$5,000.00</td>
+              		<td>$600.00</td>
               		<td>2015-10-27</td>   
-              		<td>Unpaid</td>           		
+              		<td>ISSUED</td>           		
               </tr>
               <tr>
-             		<td>2</td>
-              		<td>zhengImport</td>
-              		<td>2015-08-10</td>
-              		<td>$6,000.00</td>  
-              	    <td>2015-08-17</td>  
-              		<td>Paid</td>           		
+             		<td>CRD-002</td>
+              		<td>INV-002</td>
+              		<td>2015-10-20</td>
+              		<td>$700.00</td>
+              		<td>2015-10-27</td>   
+              		<td>IN PROCESSING</td>           		
               </tr>
               <tr>
-             		<td>3</td>
-              		<td>ComputerMTL</td>
-              		<td>2015-07-30</td>
-              		<td>$8,000.00</td>
-              		<td>2015-08-06</td>     
-              		<td>Paid</td>           		
+             		<td>CRD-003</td>
+              		<td>INV-003</td>
+              		<td>2015-10-20</td>
+              		<td>$700.00</td>
+              		<td>2015-10-27</td>   
+              		<td>IN PROCESSING</td>           		
               </tr>
  
  <!--               
@@ -131,17 +131,17 @@
           <!-- end of outstanding invoices -->          
           
           <!-- history invoices -->
-          <h2 class="sub-header">History Invoices</h2>
+          <h2 class="sub-header">History Credit Notes</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
-               <tr>
-                  <th>Invoice No.</th>
-                  <th>Item Description</th>
-                  <th>Date Issued</th>
+                <tr>
+                  <th>Credit Note No.</th>
+                  <th>Reference No.</th>
+                  <th>Date Created</th>
                   <th>Amount</th>
-                  <th>Due Date</th>
-                  <th>Invoice Status</th>                  
+                  <th>Date Issued</th>
+                  <th>Credit Note Status</th>                  
                 </tr>
               </thead>
               <tbody>
