@@ -85,23 +85,26 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Project ID</th>
-                  <th>Project Code</th>
-                  <th>Project Name</th>
-                  <th>Total Duration</th>
-                  <th>Total Cost</th>
-                  <th>Status</th>
+                  <th>Item ID</th>
+                  <th>Class</th>
+                  <th>Subclass</th>
+                  <th>Item Code</th>
+                  <th>Item Name</th>                  
+                  <th>Item Status</th>
                 </tr>
               </thead>
               <tbody>
+              
+	             <c:forEach var="item" items="${itemList}">
 				<tr>
-                  <td>Project ID</td>
-                  <td>Project Code</td>
-                  <td>Project Name</td>
-                  <td>Total Duration</td>
-                  <td>Total Cost</td>
-                  <td>Status</td>
-                </tr>
+	                 <td>${item.itemId}</td>
+	                 <td>${item.categoryName}</td>
+	                 <td>${item.subCategoryName}</td>
+	                 <td>${item.itemCode}</td>
+	                 <td>${item.itemName}</td>                  
+	                 <td>${item.itemStatusName}</td>
+	               </tr>
+	               </c:forEach>
               </tbody>
             </table>
           </div>
