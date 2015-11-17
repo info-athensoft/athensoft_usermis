@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Informatique Athensoft</title>
+    
+    <!-- Company Logo Icon -->
+    <link rel="icon" href="content/ico/favicon.ico">    
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="content/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="invoice_id_12222">Open modal for @mdo</button>
+<a href="#" data-whatever="invoice_id_12222" onclick="showWindow('invoice_id_12222');">a link</a>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <!-- 
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+           -->
+           
+          <div id="data"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 	<script src="scripts/jquery.min.js"></script>
+     <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/docs.min.js"></script>
+    
+
+<script>
+function showWindow(invoice_id){
+	alert(invoice_id);
+	var options = {'show':'true'};
+	$('#exampleModal').modal(options);
+	$('#recipient-name').val(invoice_id+" ok");
+	
+	
+	query();	
+}
+	
+	
+function query(){
+	$.ajax({
+		type:"post",
+		url:"view_billaddress_json.do",
+		dataType:"json",
+		timeout : 30000,
+		
+		success:function(data){			
+			var billAddressList = data.billAddressList;
+			var str ="";
+			for(var i in billAddressList){
+				str += billAddressList[i].addressId+" ";				
+				str += billAddressList[i].streeNum+" ";				
+				str += billAddressList[i].streeName+" ";				
+				str += billAddressList[i].roomType+" ";				
+				str += billAddressList[i].roomNum+" ";
+				str += "<br/>";
+			}
+			//$('#message-text').text(str);
+			$("#data").html(str);
+		},
+		error:function(){
+			alert("ERROR: query failed.");	 
+		},			
+		complete: function(XMLHttpRequest, textStatus){
+			
+		}
+		
+	});
+}
+</script>
+
+</body>
+</html>
