@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.athensoft.ecomm.entity.finance.Invoice;
 
-@Component("InvoiceDaoParam")
+@Component("invoiceDaoParam")
 public class InvoiceDaoImpl implements InvoiceDao{
 	
 	private NamedParameterJdbcTemplate jdbc;
@@ -28,12 +28,12 @@ public class InvoiceDaoImpl implements InvoiceDao{
 		String sql = "SELECT inv_id,inv_no,inv_desc,date_issued,date_due,inv_terms,inv_status,cust_id,bill_addr_id,ship_addr_id,inv_subtotal,discount_amt,total_before_tax,gst_hst_amt,qst_pst_amt,inv_grand_total "
 				   + "FROM invoice "
 				   + "WHERE 1=1 ";
-//				   + "AND addr_type = 2";
+//				   + "AND inv_status = 1";
 		return jdbc.query(sql, new InvoiceRowMapper());
 	}
 	
 	public List<Invoice> findAllByCustId(int custId){
-		String sql = "SELECT inv_id,inv_no,inv_desc,date_issued,date_due,inv_terms,inv_status,cust_id,bill_addr_id,ship_addr_id,inv_subtotal,discount_amt,total_before_tax,gst_hst_amt,qst_amt,inv_grand_total "
+		String sql = "SELECT inv_id,inv_no,inv_desc,date_issued,date_due,inv_terms,inv_status,cust_id,bill_addr_id,ship_addr_id,inv_subtotal,discount_amt,total_before_tax,gst_hst_amt,qst_pst_amt,inv_grand_total "
 				   + "FROM invoice "
 				   + "WHERE 1=1 "
 				   + "AND cust_id = :cust_id";
@@ -42,6 +42,40 @@ public class InvoiceDaoImpl implements InvoiceDao{
 		return jdbc.query(sql, paramSource, new InvoiceRowMapper());
 	}
 	
+	/* (non-Javadoc)
+	 * outstanding invoice under cust_id
+	 * @see com.athensoft.ecomm.dao.finance.InvoiceDao#findByCustIdAfterIssuedDate(com.athensoft.ecomm.entity.finance.Invoice)
+	 */
+	@Override
+	public List<Invoice> findByCustIdAfterIssuedDate(Invoice qryInvoiceObj) {
+		String sql = "SELECT inv_id,inv_no,inv_desc,date_issued,date_due,inv_terms,inv_status,cust_id,bill_addr_id,ship_addr_id,inv_subtotal,discount_amt,total_before_tax,gst_hst_amt,qst_pst_amt,inv_grand_total "
+				   + "FROM invoice "
+				   + "WHERE 1=1 "
+				   + "AND cust_id = :cust_id "
+				   + "AND date_issued >= :date_issued ";
+	    MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("cust_id", qryInvoiceObj.getCustId());
+		paramSource.addValue("date_issued", qryInvoiceObj.getIssuedDate());
+		return jdbc.query(sql, paramSource, new InvoiceRowMapper());
+	}
+	
+	/* (non-Javadoc)
+	 * history invoice under cust_id
+	 * @see com.athensoft.ecomm.dao.finance.InvoiceDao#findByCustIdAfterIssuedDate(com.athensoft.ecomm.entity.finance.Invoice)
+	 */
+	@Override
+	public List<Invoice> findByCustIdBeforeIssuedDate(Invoice qryInvoiceObj) {
+		String sql = "SELECT inv_id,inv_no,inv_desc,date_issued,date_due,inv_terms,inv_status,cust_id,bill_addr_id,ship_addr_id,inv_subtotal,discount_amt,total_before_tax,gst_hst_amt,qst_pst_amt,inv_grand_total "
+				   + "FROM invoice "
+				   + "WHERE 1=1 "
+				   + "AND cust_id = :cust_id "
+				   + "AND date_issued < :date_issued ";
+	    MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("cust_id", qryInvoiceObj.getCustId());
+		paramSource.addValue("date_issued", qryInvoiceObj.getIssuedDate());
+		return jdbc.query(sql, paramSource, new InvoiceRowMapper());
+	}
+
 	private static class InvoiceRowMapper implements RowMapper<Invoice>{
 		public Invoice mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			Invoice x = new Invoice();
@@ -49,7 +83,7 @@ public class InvoiceDaoImpl implements InvoiceDao{
 			x.setInvoiceNum(rs.getString("inv_no"));
 			x.setInvoiceDesc(rs.getString("inv_desc"));
 			x.setIssuedDate(rs.getDate("date_issued"));
-			x.setDueDate(rs.getDate("ddate_due"));
+			x.setDueDate(rs.getDate("date_due"));
 			x.setInvoiceTerms(rs.getString("inv_terms"));
 			x.setInvoiceStatus(rs.getInt("inv_status"));
 			x.setCustId(rs.getInt("cust_id"));

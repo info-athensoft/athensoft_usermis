@@ -65,9 +65,9 @@
               </thead>
               <tbody>
 				<tr>
-                  <td>$19,000.00</td>
-                  <td>$14,000.00</td>
-                  <td>$5,000.00</td>
+                  <td>$${grandTotalAmount}</td>
+                  <td>$${paidTotalAmount}</td>
+                  <td><font color="red"><b>$${balanceDueAmount}</b></font></td>
                 </tr>
               </tbody>
             </table>
@@ -91,12 +91,19 @@
               <tbody>
                <c:forEach var="invoice" items="${invoiceList}">
 				 <tr>
-	                 <td>${invoice.inv_no}</td>
-	                 <td>${invoice.inv_desc}</td>
-	                 <td>${invoice.date_issued}</td>
-	                 <td>${invoice.inv_subtotal}</td>
-	                 <td>${invoice.date_due}</td>                  
-	                 <td>${invoice.inv_status}</td>
+	                  <td>${invoice.invoiceNum}</td>
+	                 <td>${invoice.invoiceDesc}</td>
+	                 <td>${invoice.issuedDate}</td>
+	                 <td>${invoice.invoiceGrandTotal}</td>
+	                 <td>${invoice.dueDate}</td>                  
+	                 <td>
+	                 	<!-- ${invoice.invoiceStatus}  -->
+	                 	<c:choose>
+	                 		<c:when test="${invoice.invoiceStatus==1}"><font color="red"><b>UNPAID</b></font></c:when>
+	                 		<c:when test="${invoice.invoiceStatus==2}"><font color="green"><b>PAID</b></font></c:when>
+	                 		<c:otherwise>VOID</c:otherwise>
+	                 	</c:choose>	                 
+	                 </td>
 	                 <td><a href="" data-toggle="modal" data-target="#myModal">View</a> | <a href="">Download</a></td>   
 	             </tr>
 	           </c:forEach> 
@@ -125,14 +132,21 @@
                 </tr>
               </thead>
               <tbody>
-	             <c:forEach var="historyInvoice" items="${historyInvoiceList}">
+	             <c:forEach var="invoice" items="${invoiceHistoryList}">
 				 <tr>
-	                 <td>${historyInvoice.inv_no}</td>
-	                 <td>${historyInvoice.inv_desc}</td>
-	                 <td>${historyInvoice.date_issued}</td>
-	                 <td>${historyInvoice.inv_subtotal}</td>
-	                 <td>${historyInvoice.date_due}</td>                  
-	                 <td>${historyInvoice.inv_status}</td>
+	                 <td>${invoice.invoiceNum}</td>
+	                 <td>${invoice.invoiceDesc}</td>
+	                 <td>${invoice.issuedDate}</td>
+	                 <td>${invoice.invoiceGrandTotal}</td>
+	                 <td>${invoice.dueDate}</td>                  
+	                 <td>
+	                 	<!-- ${invoice.invoiceStatus}  -->
+	                 	<c:choose>
+	                 		<c:when test="${invoice.invoiceStatus==1}"><font color="red"><b>UNPAID</b></font></c:when>
+	                 		<c:when test="${invoice.invoiceStatus==2}"><font color="green"><b>PAID</b></font></c:when>
+	                 		<c:otherwise>VOID</c:otherwise>
+	                 	</c:choose>	                 
+	                 </td>
 	                 <td><a href="" data-toggle="modal" data-target="#myModal">View</a> | <a href="">Download</a></td>   
 	               </tr>
 	              </c:forEach>
