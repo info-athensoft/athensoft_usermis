@@ -89,46 +89,17 @@
                 </tr>
               </thead>
               <tbody>
-              <tr>
-             		<td>1</td>
-              		<td>chatime</td>
-              		<td>2015-10-20</td>
-              		<td>$5,000.00</td>
-              		<td>2015-10-27</td>   
-              		<td>Unpaid</td>
-              		<td><a href="" data-toggle="modal" data-target="#myModal">View</a> | <a href="">Download</a></td>           		
-              </tr>
-              <tr>
-             		<td>2</td>
-              		<td>zhengImport</td>
-              		<td>2015-08-10</td>
-              		<td>$6,000.00</td>  
-              	    <td>2015-08-17</td>  
-              		<td>Paid</td>
-              		<td><a href="">View</a> | <a href="">Download</a></td>             		
-              </tr>
-              <tr>
-             		<td>3</td>
-              		<td>ComputerMTL</td>
-              		<td>2015-07-30</td>
-              		<td>$8,000.00</td>
-              		<td>2015-08-06</td>     
-              		<td>Paid</td>
-              		<td><a href="">View</a> | <a href="download/invoice/INF.Athensoft_SalesInvoice_ngc_2015_0815.pdf">Download</a></td>             		
-              </tr>
- 
- <!--               
-	             <c:forEach var="item" items="${itemList}">
-				<tr>
-	                 <td>${item.itemId}</td>
-	                 <td>${item.categoryName}</td>
-	                 <td>${item.subCategoryName}</td>
-	                 <td>${item.itemCode}</td>
-	                 <td>${item.itemName}</td>                  
-	                 <td>${item.itemStatusName}</td>
-	               </tr>
-	               </c:forEach> 
--->
+               <c:forEach var="invoice" items="${invoiceList}">
+				 <tr>
+	                 <td>${invoice.inv_no}</td>
+	                 <td>${invoice.inv_desc}</td>
+	                 <td>${invoice.date_issued}</td>
+	                 <td>${invoice.inv_subtotal}</td>
+	                 <td>${invoice.date_due}</td>                  
+	                 <td>${invoice.inv_status}</td>
+	                 <td><a href="" data-toggle="modal" data-target="#myModal">View</a> | <a href="">Download</a></td>   
+	             </tr>
+	           </c:forEach> 
               </tbody>
             </table>
           </div>
@@ -149,21 +120,22 @@
                   <th>Date Issued</th>
                   <th>Amount</th>
                   <th>Due Date</th>
-                  <th>Invoice Status</th>                  
+                  <th>Invoice Status</th>
+                  <th>Options</th>   
                 </tr>
               </thead>
               <tbody>
-              
-	             <c:forEach var="item" items="${itemList}">
-				<tr>
-	                 <td>${item.itemId}</td>
-	                 <td>${item.categoryName}</td>
-	                 <td>${item.subCategoryName}</td>
-	                 <td>${item.itemCode}</td>
-	                 <td>${item.itemName}</td>                  
-	                 <td>${item.itemStatusName}</td>
+	             <c:forEach var="historyInvoice" items="${historyInvoiceList}">
+				 <tr>
+	                 <td>${historyInvoice.inv_no}</td>
+	                 <td>${historyInvoice.inv_desc}</td>
+	                 <td>${historyInvoice.date_issued}</td>
+	                 <td>${historyInvoice.inv_subtotal}</td>
+	                 <td>${historyInvoice.date_due}</td>                  
+	                 <td>${historyInvoice.inv_status}</td>
+	                 <td><a href="" data-toggle="modal" data-target="#myModal">View</a> | <a href="">Download</a></td>   
 	               </tr>
-	               </c:forEach>
+	              </c:forEach>
               </tbody>
             </table>
           </div><!-- end of history invoices -->

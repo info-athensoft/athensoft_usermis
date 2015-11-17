@@ -18,7 +18,7 @@
 
  <ul class="nav nav-sidebar">
   <li class="active"><a href="#">My Profile<span class="sr-only">(current)</span></a></li>
-  <li><a href="">Basic Information</a></li>
+  <li><a href="view_customerprofile.do">Basic Information</a></li>
   <li><a href="view_billaddress.do">Billing addresses</a></li>
   <li><a href="view_shipaddress.do">Shipping addresses</a></li>
 </ul>
