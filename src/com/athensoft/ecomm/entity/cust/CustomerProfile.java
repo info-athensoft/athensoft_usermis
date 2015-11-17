@@ -2,7 +2,7 @@ package com.athensoft.ecomm.entity.cust;
 
 import java.util.List;
 
-public class CustProfile {
+public class CustomerProfile {
 	private CustBasicInfo custBasicInfo;
 	private CustContactInfo custContactInfo;
 	
