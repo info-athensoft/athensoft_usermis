@@ -84,7 +84,8 @@
                   <th>Date Issued</th>
                   <th>Amount</th>
                   <th>Due Date</th>
-                  <th>Invoice Status</th>                  
+                  <th>Invoice Status</th>    
+                  <th>Options</th>              
                 </tr>
               </thead>
               <tbody>
@@ -94,7 +95,8 @@
               		<td>2015-10-20</td>
               		<td>$5,000.00</td>
               		<td>2015-10-27</td>   
-              		<td>Unpaid</td>           		
+              		<td>Unpaid</td>
+              		<td><a href="" target="_blank" data-toggle="modal" data-target="#myModal">View</a> | <a href="">Download</a></td>           		
               </tr>
               <tr>
              		<td>2</td>
@@ -102,7 +104,8 @@
               		<td>2015-08-10</td>
               		<td>$6,000.00</td>  
               	    <td>2015-08-17</td>  
-              		<td>Paid</td>           		
+              		<td>Paid</td>
+              		<td><a href="">View</a> | <a href="">Download</a></td>             		
               </tr>
               <tr>
              		<td>3</td>
@@ -110,7 +113,8 @@
               		<td>2015-07-30</td>
               		<td>$8,000.00</td>
               		<td>2015-08-06</td>     
-              		<td>Paid</td>           		
+              		<td>Paid</td>
+              		<td><a href="">View</a> | <a href="download/invoice/INF.Athensoft_SalesInvoice_ngc_2015_0815.pdf">Download</a></td>             		
               </tr>
  
  <!--               
@@ -129,6 +133,10 @@
             </table>
           </div>
           <!-- end of outstanding invoices -->          
+          
+          <jsp:include page="user_invoice_modal.jsp"></jsp:include>
+          
+          
           
           <!-- history invoices -->
           <h2 class="sub-header">History Invoices</h2>
