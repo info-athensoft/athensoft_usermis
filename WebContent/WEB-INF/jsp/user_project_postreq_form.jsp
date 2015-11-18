@@ -50,41 +50,30 @@
         
         <!-- Dash board  -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">My Projects</h1>
+          <h1 class="page-header">Post project requirements</h1>
 
 
 
-          <h2 class="sub-header">Post requirements</h2>
+          <h2 class="sub-header">Project Information</h2>
 		  <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Project ID</th>
+                  <!-- <th>Project ID</th>  -->
                   <th>Project Code</th>
                   <th>Project Name</th>
                   <th>Status</th>
-                  <th>Option</th>
                 </tr>
               </thead>
               <tbody>
               
               <tr>
-	              <td></td>
-	              <td></td>
-	              <td></td>
-	              <td></td>
-	              <td><a href="goto_requirement_form.do" class="btn btn-primary" target="_blank">+ Add Requirement</a></td>
+	             <!--  <td></td>  -->
+	              <td>WS-CHATIME</td>
+	              <td>Chatime website 1.0.0</td>
+	              <td>IN PROCESSING</td>
               </tr>
               
-              <c:forEach var="x" items="${xx}">
-               <tr>
-                  <td>${x}</td>
-                  <td>${x}</td>
-                  <td>${x}</td>
-                  <td>${x}</td>
-                  <td><a href="goto_requirement_form.do" class="btn btn-primary" target="_blank">+ Add Requirement</a></td>
-                </tr>
-                </c:forEach>
               </tbody>
             </table>
           </div>
