@@ -32,6 +32,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+
   </head>
 
   <body>
@@ -79,74 +81,87 @@
           </div>
 
           <!-- form -->
+          <div class="col-lg-8">
           <form class="form-horizontal">
+                    		
+			      
+				<input type="hidden" class="form-control" name="c_projectId" id="c_projectId" value="1">
+				
 
 				<label for="c_reqType1">Request Type1</label>
-				<select>
-				  <option value="1">Functionel</option>
-				  <option value="2">Non-Functionel</option>
+				<select id="c_reqType1">
+				  <option value="1" checked="checked">Functional</option>
+				  <option value="2">Non-functional</option>
 				</select><br/><br/>
 				
 				<label for="c_reqType2">Request Type2</label>
-				<select>
-				  <option value="1">Front-End</option>
+				<select id="c_reqType2">
+				  <option value="1" checked="checked">Front-End</option>
 				  <option value="2">Back-End</option>
 				  <option value="3">System</option>
 				</select><br/><br/>
 				
-				<lable for="c_reqNum">Request Number</lable>   
-				<div>       
-				<input type="text" class="form-control" name="c_reqNum"><br/>
-				</div>
-				
-				<lable for="c_reqLocation">Request Location</lable> 
-				<div>         
-				<input type="text" class="form-control" name="c_reqLocation"><br/>
-				</div>
-				
-				<lable for="c_reqTarget">Request Target</lable> 
-				<div>
-				<input type="text" class="form-control" name="c_reqTarget"><br/>
-				</div>
-				
-				<lable for="c_reqDesc">Request Description</lable>
-				<div>
-				<textarea class="form-control" name="c_reqDesc" rows="3"></textarea><br/> 
-				</div>
-				
 				<label for="c_reqRole">Request Role</label>
-				<select>
-				  <option value="1">Athensoft</option>
+				<select id="c_reqRole">
+				  <option value="1" checked="checked">Athensoft</option>
 				  <option value="2">Client</option>
 				  <option value="3">Broker</option>
 				</select><br/><br/>
 				
-				<lable for="c_reqDate">Request Date</lable>
-				<div> 
-				<input type="text" class="form-control" name="c_reqDate"><br/>
-				</div>
-				
 				<label for="c_reqStatus">Request Status</label>
-				<select>
-				  <option value="1">Valid</option>
+				<select id="c_reqStatus">
+				  <option value="1" checked="checked">Valid</option>
 				  <option value="2">Invalid</option>
 				  <option value="3">Void</option>
 				  <option value="5">Delete</option>
 				</select><br/><br/>
+				
+				
+				<lable for="c_reqDate">Request Date</lable>				 
+				<input type="text" class="form-control" name="c_reqDate" id="c_reqDate" value="2015-11-18"><br/>
+				
+				<lable for="c_reqNum">Request Number</lable>   
+				<div>       
+				<input type="text" class="form-control" name="c_reqNum" id="c_reqNum"><br/>
+				</div>
+				
+				<lable for="c_reqLocation">Request Location</lable> 
+				<div>         
+				<input type="text" class="form-control" name="c_reqLocation" id="c_reqLocation"><br/>
+				</div>
+				
+				<lable for="c_reqTarget">Request Target</lable> 
+				<div>
+				<input type="text" class="form-control" name="c_reqTarget" id="c_reqTarget"><br/>
+				</div>
+				
+				<lable for="c_reqDesc">Request Description</lable>
+				<div>
+				<textarea class="form-control" name="c_reqDesc" id="c_reqDesc" rows="3"></textarea><br/> 
+				</div>
+				
 		
 				
-				<input type="submit" value="Create"> 
-				<input type="submit" value="Search"> 
+				<a href="javascript:void(0);" onclick="createRequirement()" class="btn btn-primary">Post requirement</a> 
+				<!-- <input type="submit" value="Search"> 
 				<input type="submit" value="Update"> 
-				<input type="submit" value="Delete"> 
+				<input type="submit" value="Delete">  -->
 
           </form>
-          <!--  -->
+          <!-- end of form  -->
+          <br/><br/>
+          </div>
+          <br/><br/>
+          <!-- data -->
+          <div id="data"></div>
+          
         </div>
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
+
+
+	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -155,5 +170,16 @@
     <!-- <script src="../../assets/js/vendor/holder.min.js"></script>  -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="scripts/temp/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- Athensoft scripts -->
+    <script src="scripts/local/user/post-request.js"></script>
+    
+	<script>	
+	$(document).ready(function(){
+		searchAll();   			
+	});
+	</script>   
+    
+    
   </body>
 </html>

@@ -95,7 +95,7 @@ public class RequirementController {
 		
 		Map<String, Object> model = mav.getModel();
 		//todo
-		int projectId = 2;  //test mtlpc
+		int projectId = 1;  //test mtlpc
 		List<Requirement> reqList = requirementService.getRequirementByProjectId(projectId);
 		
 		//teset
