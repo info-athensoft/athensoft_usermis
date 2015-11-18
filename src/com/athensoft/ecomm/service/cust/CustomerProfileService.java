@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.athensoft.ecomm.dao.cust.CustomerProfileDao;
+import com.athensoft.ecomm.entity.cust.CustomerProfile;
 
 @Service
 public class CustomerProfileService {
@@ -15,4 +16,9 @@ public class CustomerProfileService {
 	public void setCustomerProfileDao(CustomerProfileDao customerProfileDao) {
 		this.customerProfileDao = customerProfileDao;
 	}
+	
+	public CustomerProfile getCustomerProfile(int custId){
+		return customerProfileDao.findByCustId(custId);
+	}
+	
 }
