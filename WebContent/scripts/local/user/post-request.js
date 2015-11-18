@@ -88,10 +88,29 @@ function createRequirement(){
 			    	+" <th>Req Description</th>"
 			    	+ "</tr>";
 
-		    for(var i in reqs){				
+		    for(var i in reqs){
+		    	var type2 = reqs[i].reqType2;
+		    	if(reqs[i].reqType2=='1'){
+		    		type2 = 'Front-end';
+		    	}
+		    	if(reqs[i].reqType2=='2'){
+		    		type2 = 'Back-end';
+		    	}
+		    	if(reqs[i].reqType2=='3'){
+		    		type2 = 'System';
+		    	}
+		    	
+		    	var type1 = reqs[i].reqType1;
+		    	if(reqs[i].reqType1=='1'){
+		    		type1 = 'Functional';
+		    	}
+		    	if(reqs[i].reqType1=='2'){
+		    		type1 = 'Non-functional';
+		    	}
+		    	
 				str = str + "<tr>"
-					+ "<td>"+reqs[i].reqType2+"</td>"
-					+ "<td>"+reqs[i].reqType1+"</td>"
+					+ "<td>"+type2+"</td>"
+					+ "<td>"+type1+"</td>"
 					+ "<td>"+reqs[i].reqNum+"</td>"
 					+ "<td>"+reqs[i].reqLocation+"</td>"
 					+ "<td>"+reqs[i].reqTarget+"</td>"
