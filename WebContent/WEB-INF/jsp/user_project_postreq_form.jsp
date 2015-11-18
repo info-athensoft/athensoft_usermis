@@ -77,6 +77,71 @@
               </tbody>
             </table>
           </div>
+
+          <!-- form -->
+          <form class="form-horizontal">
+
+				<label for="c_reqType1">Request Type1</label>
+				<select>
+				  <option value="1">Functionel</option>
+				  <option value="2">Non-Functionel</option>
+				</select><br/><br/>
+				
+				<label for="c_reqType2">Request Type2</label>
+				<select>
+				  <option value="1">Front-End</option>
+				  <option value="2">Back-End</option>
+				  <option value="3">System</option>
+				</select><br/><br/>
+				
+				<lable for="c_reqNum">Request Number</lable>   
+				<div>       
+				<input type="text" class="form-control" name="c_reqNum"><br/>
+				</div>
+				
+				<lable for="c_reqLocation">Request Location</lable> 
+				<div>         
+				<input type="text" class="form-control" name="c_reqLocation"><br/>
+				</div>
+				
+				<lable for="c_reqTarget">Request Target</lable> 
+				<div>
+				<input type="text" class="form-control" name="c_reqTarget"><br/>
+				</div>
+				
+				<lable for="c_reqDesc">Request Description</lable>
+				<div>
+				<textarea class="form-control" name="c_reqDesc" rows="3"></textarea><br/> 
+				</div>
+				
+				<label for="c_reqRole">Request Role</label>
+				<select>
+				  <option value="1">Athensoft</option>
+				  <option value="2">Client</option>
+				  <option value="3">Broker</option>
+				</select><br/><br/>
+				
+				<lable for="c_reqDate">Request Date</lable>
+				<div> 
+				<input type="text" class="form-control" name="c_reqDate"><br/>
+				</div>
+				
+				<label for="c_reqStatus">Request Status</label>
+				<select>
+				  <option value="1">Valid</option>
+				  <option value="2">Invalid</option>
+				  <option value="3">Void</option>
+				  <option value="5">Delete</option>
+				</select><br/><br/>
+		
+				
+				<input type="submit" value="Create"> 
+				<input type="submit" value="Search"> 
+				<input type="submit" value="Update"> 
+				<input type="submit" value="Delete"> 
+
+          </form>
+          <!--  -->
         </div>
       </div>
     </div>
