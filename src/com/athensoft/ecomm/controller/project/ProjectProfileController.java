@@ -20,15 +20,19 @@ public class ProjectProfileController {
 		this.projectProfileService = projectProfileService;
 	}
 
-	@RequestMapping("/view_project_historical.do")
+	@RequestMapping("/view_project_list.do")
 	public ModelAndView viewProjectHistorcial(){
-		System.out.println("entering view_project_historical.do");
+		System.out.println("entering view_project_list.do");
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user_project_historical");
+		mav.setViewName("user_project_list");
 		
 		Map<String, Object> model = mav.getModel();
-		List<ProjectProfile> projectProfileList = projectProfileService.getProjectProfileList();
+//		List<ProjectProfile> projectProfileList = projectProfileService.getProjectProfileList();
+		
+		//test 
+		int custId = 10;
+		List<ProjectProfile> projectProfileList = projectProfileService.getProjectProfileByCustId(custId);
 		
 		//test
 		System.out.println("ProjectProfileList="+projectProfileList.size());

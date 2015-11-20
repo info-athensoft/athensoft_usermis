@@ -23,6 +23,11 @@ public class ProjectProfileService {
 		List<ProjectProfile> projectProfileList = projectProfileDao.findAll();
 		return projectProfileList;
 	}
+	
+	public List<ProjectProfile> getProjectProfileByCustId(int custId){
+		List<ProjectProfile> projectProfileList = projectProfileDao.findByCustId(custId);
+		return projectProfileList;
+	}
 		
 }
 

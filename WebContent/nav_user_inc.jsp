@@ -24,11 +24,15 @@
 </ul>
 
 <ul class="nav nav-sidebar">
-	<li class="active"><a href="#">My Projects<span class="sr-only">(current)</span></a></li>
+	<li class="active"><a href="#">My Projects and Services<span class="sr-only">(current)</span></a></li>
+	<li><a href="view_project_list.do">Overview</a></li>
+	<li><a href="track_project.do">Current projects</a></li>
+	<li><a href="#">Historical projects</a></li>
 	<li><a href="request_project.do">Request a new project</a></li>
 	<li><a href="goto_projectreq.do">Post requirements</a></li>
-  	<li><a href="track_project.do">Tracking current projects</a></li>
-  	<li><a href="view_project_historical.do">Historic projects</a></li>
+  	
+  	
+  	
 </ul>
 
 <ul class="nav nav-sidebar">

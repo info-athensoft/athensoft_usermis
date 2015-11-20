@@ -50,21 +50,22 @@
         
         <!-- Dash board  -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">My Projects</h1>
-
-
-
-          <h2 class="sub-header">Historical Projects</h2>
+          <h1 class="page-header">My Projects and Services</h1>
+		 
+		 <!-- project list -->
+          <h2 class="sub-header">Projects</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Project ID</th>
-                  <th>Project Code</th>
+                  <th>Project Code/SeqNo</th>
+                  <!-- <th>Project Seq No</th>  -->
                   <th>Project Name</th>
+                  <th>Project Description</th>
                   <th>Total Duration</th>
                   <th>Total Cost</th>
-                  <th>Status</th>
+                  <th>Project Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -72,13 +73,64 @@
               <c:forEach var="projectProfile" items="${projectProfileList}">
                <tr>
                   <td>${projectProfile.projectId}</td>
-                  <td>${projectProfile.projectCode}</td>
+                  <td>${projectProfile.projectCode}-${projectProfile.projectSeqno}</td>
+                  <!-- <td>${projectProfile.projectSeqno}</td>  -->
                   <td>${projectProfile.projectName}</td>
+                  <td>${projectProfile.projectDesc}</td>
                   <td>${projectProfile.duration} weeks</td>
                   <td>$${projectProfile.cost}</td>
                   <td>${projectProfile.projectStatusName}</td>
                 </tr>
                 </c:forEach>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- service list -->
+          <h2 class="sub-header">Services</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Service ID</th>
+                  <th>Ref. Code</th>
+                  <th>Service Code</th>
+                  <th>Service Name</th>
+                  <th>Service Description</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Total Cost</th>
+                  <th>Service Status</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+              
+              <tr>
+                  <td>1</td>
+                  <td></td>
+                  <td>SRV-1-1-3</td>
+                  <td>domain name binding</td>
+                  <td>one-time</td>
+                  <td> - </td>
+                  <td> - </td>
+                  <td> - </td>
+                  <td>Active</td>
+               </tr>
+               
+               <tr>
+                  <td>2</td>
+                  <td>PRJ001,PRJ002</td>
+                  <td>SRV-1-2-2</td>
+                  <td>host server renting</td>
+                  <td>1 year plan</td>
+                  <td>2015-10-01</td>
+                  <td>2016-09-30</td>
+                  <td> - </td>
+                  <td>Active</td>
+               </tr>
+              
+              
               </tbody>
             </table>
           </div>

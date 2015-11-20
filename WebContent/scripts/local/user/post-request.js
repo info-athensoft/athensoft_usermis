@@ -80,12 +80,15 @@ function createRequirement(){
 			reqs = data.reqList;
 			var str = "<table class=\"table table-striped\">"
 			    	+ "<tr>"
-			    	+" <th>Req Type A</th>"
-			    	+" <th>Req Type B</th>"
+			    	+" <th>Tier</th>"
+			    	+" <th>Req Type</th>"
 			    	+" <th>Req No.</th>"
 			    	+" <th>Req Location</th>"
 			    	+" <th>Req Target</th>"
 			    	+" <th>Req Description</th>"
+			    	+" <th>Req Role</th>"
+			    	+" <th>Req Date</th>"
+			    	+" <th>Req Status</th>"
 			    	+ "</tr>";
 
 		    for(var i in reqs){

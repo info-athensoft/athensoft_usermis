@@ -81,77 +81,73 @@
           </div>
 
           <!-- form -->
-          <div class="col-lg-8">
-          <form class="form-horizontal">
-                    		
-			      
+          <div class="row">
+          <div class="col-lg-4">			      
 				<input type="hidden" class="form-control" name="c_projectId" id="c_projectId" value="1">
 				
 
 				<label for="c_reqType1">Request Type1</label>
-				<select id="c_reqType1">
+				<select id="c_reqType1" class="form-control">
 				  <option value="1" checked="checked">Functional</option>
 				  <option value="2">Non-functional</option>
-				</select><br/><br/>
+				</select><br/>
 				
 				<label for="c_reqType2">Request Type2</label>
-				<select id="c_reqType2">
+				<select id="c_reqType2" class="form-control">
 				  <option value="1" checked="checked">Front-End</option>
 				  <option value="2">Back-End</option>
 				  <option value="3">System</option>
-				</select><br/><br/>
+				</select><br/>
 				
 				<label for="c_reqRole">Request Role</label>
-				<select id="c_reqRole">
+				<select id="c_reqRole" class="form-control">
 				  <option value="1" checked="checked">Athensoft</option>
 				  <option value="2">Client</option>
 				  <option value="3">Broker</option>
-				</select><br/><br/>
+				</select><br/>
 				
 				<label for="c_reqStatus">Request Status</label>
-				<select id="c_reqStatus">
+				<select id="c_reqStatus" class="form-control">
 				  <option value="1" checked="checked">Valid</option>
 				  <option value="2">Invalid</option>
 				  <option value="3">Void</option>
 				  <option value="5">Delete</option>
-				</select><br/><br/>
-				
-				
-				<lable for="c_reqDate">Request Date</lable>				 
+				</select><br/>
+
+          </div>
+          	<div class="col-lg-4">
+          		<lable for="c_reqDate">Request Date</lable>				 
 				<input type="text" class="form-control" name="c_reqDate" id="c_reqDate" value="2015-11-18"><br/>
 				
-				<lable for="c_reqNum">Request Number</lable>   
-				<div>       
+				<lable for="c_reqNum">Request Number</lable>			      
 				<input type="text" class="form-control" name="c_reqNum" id="c_reqNum"><br/>
-				</div>
 				
-				<lable for="c_reqLocation">Request Location</lable> 
-				<div>         
+				
+				<lable for="c_reqLocation">Request Location</lable>
+				      
 				<input type="text" class="form-control" name="c_reqLocation" id="c_reqLocation"><br/>
-				</div>
 				
-				<lable for="c_reqTarget">Request Target</lable> 
-				<div>
+				
+				<lable for="c_reqTarget">Request Target</lable> 			
 				<input type="text" class="form-control" name="c_reqTarget" id="c_reqTarget"><br/>
-				</div>
 				
-				<lable for="c_reqDesc">Request Description</lable>
-				<div>
+				
+				<lable for="c_reqDesc">Request Description</lable>				
 				<textarea class="form-control" name="c_reqDesc" id="c_reqDesc" rows="3"></textarea><br/> 
-				</div>
 				
-		
-				
-				<a href="javascript:void(0);" onclick="createRequirement()" class="btn btn-primary">Post requirement</a> 
+          	</div>
+          </div>
+          
+          <div class="row">
+          <div class="col-lg-12">
+          <a href="javascript:void(0);" onclick="createRequirement()" class="btn btn-primary">Post requirement</a> 
 				<!-- <input type="submit" value="Search"> 
 				<input type="submit" value="Update"> 
 				<input type="submit" value="Delete">  -->
-
-          </form>
-          <!-- end of form  -->
-          <br/><br/>
+				<br/><br/>
           </div>
-          <br/><br/>
+          </div>
+          
           <!-- data -->
           <div id="data"></div>
           

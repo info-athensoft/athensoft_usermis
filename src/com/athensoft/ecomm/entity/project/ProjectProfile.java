@@ -3,6 +3,7 @@ package com.athensoft.ecomm.entity.project;
 public class ProjectProfile {
 	private int projectId ;
 	private String projectCode;
+	private int projectSeqno;		//added by Athens on 2015-11-19
 	private String projectName;
 	private String projectDesc;
 	private int estimatedDuration; 	//by week
@@ -71,6 +72,12 @@ public class ProjectProfile {
 	}
 	public void setCost(double cost) {
 		this.cost = cost;
+	}
+	public int getProjectSeqno() {
+		return projectSeqno;
+	}
+	public void setProjectSeqno(int projectSeqno) {
+		this.projectSeqno = projectSeqno;
 	}
 	
 }
