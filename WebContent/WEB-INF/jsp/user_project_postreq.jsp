@@ -62,26 +62,20 @@
                   <th>Project ID</th>
                   <th>Project Code</th>
                   <th>Project Name</th>
+                  <th>Project Description</th>
                   <th>Status</th>
                   <th>Option</th>
                 </tr>
               </thead>
               <tbody>
               
-              <tr>
-	              <td></td>
-	              <td></td>
-	              <td></td>
-	              <td></td>
-	              <td><a href="goto_requirement_form.do" class="btn btn-primary" target="_blank">+ Add Requirement</a></td>
-              </tr>
-              
-              <c:forEach var="x" items="${xx}">
+              <c:forEach var="projectProfile" items="${projectProfileList}">
                <tr>
-                  <td>${x}</td>
-                  <td>${x}</td>
-                  <td>${x}</td>
-                  <td>${x}</td>
+                  <td>${projectProfile.projectId}</td>
+                  <td>${projectProfile.projectCode}-${projectProfile.projectSeqno}</td>
+                  <td>${projectProfile.projectName}</td>
+                  <td>${projectProfile.projectDesc}</td>
+                  <td>${projectProfile.projectStatusName}</td>
                   <td><a href="goto_requirement_form.do" class="btn btn-primary" target="_blank">+ Add Requirement</a></td>
                 </tr>
                 </c:forEach>

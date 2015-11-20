@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.athensoft.ecomm.entity.project.ProjectProfile;
 import com.athensoft.ecomm.entity.project.Requirement;
+import com.athensoft.ecomm.service.project.ProjectProfileService;
 import com.athensoft.ecomm.service.project.RequirementService;
 
 @Controller
@@ -27,6 +29,13 @@ public class RequirementController {
 		this.requirementService = requirementService;
 	}
 	
+	private ProjectProfileService projectProfileService;
+	
+	@Autowired
+	public void setProjectProfileService(ProjectProfileService projectProfileService) {
+		this.projectProfileService = projectProfileService;
+	}
+	
 	@RequestMapping("/goto_projectreq.do")
 	public ModelAndView gotoRequirement(){
 		System.out.println("entering goto_projectreq.do");
@@ -35,6 +44,10 @@ public class RequirementController {
 		mav.setViewName("user_project_postreq");
 		
 		Map<String, Object> model = mav.getModel();
+		//test
+		int custId = 10;
+		List<ProjectProfile> projectProfileList = projectProfileService.getProjectProfileByCustId(custId);
+		model.put("projectProfileList", projectProfileList);
 		return mav;
 	}
 	
