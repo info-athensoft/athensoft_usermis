@@ -104,8 +104,6 @@
                 </tr>
               </thead>
               <tbody>
-              
-              
               <tr>
                   <td>1</td>
                   <td></td>
@@ -129,8 +127,39 @@
                   <td> - </td>
                   <td>Active</td>
                </tr>
-              
-              
+              </tbody>
+            </table>
+          </div>
+          
+          
+          <!-- important date -->
+          <h2 class="sub-header">Important date of project</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Event</th>
+                  <th>Date</th>
+                  <th>Rep. of Client</th>
+                  <th>Rep. of Athensoft</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <td>1</td>
+                  <td>First contact</td>
+                  <td>2015-10-23</td>
+                  <td>Mr. Kenny</td>
+                  <td>Athens</td>
+               </tr>
+               <tr>
+                  <td>2</td>
+                  <td>Registration</td>
+                  <td>2015-10-24</td>
+                  <td>Mr. Ivan Cho</td>
+                  <td>Athens</td>
+               </tr>
               </tbody>
             </table>
           </div>
